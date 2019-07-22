@@ -1,11 +1,9 @@
 
-var posts = []
-
 window.onload = () => {
     fetch("https://jsonplaceholder.typicode.com/posts")
         .then((resp) => resp.json())
         .then((json) => {
-            posts = json;
+           var posts = json;
             console.log(posts)
             createPosts(posts)
         });

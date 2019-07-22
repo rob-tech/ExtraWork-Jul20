@@ -1,14 +1,11 @@
 
-var posts = []
-var comments = []
-
 window.onload = () => {
     var messageId = new URLSearchParams(document.location.search).get("id");
 
     fetch("https://jsonplaceholder.typicode.com/posts/" + messageId)
         .then((resp) => resp.json())
         .then((json) => {
-            posts = json;
+           var posts = json;
             console.log(posts)
             getComments(messageId)
         });
@@ -17,7 +14,7 @@ window.onload = () => {
         fetch("  https://jsonplaceholder.typicode.com/posts/1/comments")
             .then((resp) => resp.json())
             .then((json) => {
-                comments = json;
+               var comments = json;
                 console.log(comments)
 
                 comments.forEach((comments) => {
@@ -36,8 +33,6 @@ window.onload = () => {
                          <p>"${comments.body}"</p>
                          </div>
                          </div>
-                      
-
                         `
                     }
                 })
